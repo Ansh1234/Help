@@ -19,20 +19,23 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-public class AutoComplete extends AsyncTask<String, Void,String> {
+public class AutoComplete extends AsyncTask<String, Void, List<String>> {
 
 	private static final String PLACES_API_BASE = "https://maps.googleapis.com/maps/api/place";
 	private static final String TYPE_AUTOCOMPLETE = "/autocomplete";
 	private static final String OUT_JSON = "/json";
 	private static final String API_KEY = "AIzaSyBv4MyI6Pz6OOdjqKGgzpaMYvRQEXMnxEI";
 	private Context mContext;
+	private OnTaskCompleted listener;
+	List resultList;
 	
 	public AutoComplete(Context context) {
 		this.mContext=context;
+		
 	}
 
 	@Override
-	protected String doInBackground(String... params) {
+	protected List<String> doInBackground(String... params) {
 		// TODO Auto-generated method stub
 		
 			String inputPlace = params[0];
@@ -90,8 +93,9 @@ public class AutoComplete extends AsyncTask<String, Void,String> {
 		        JSONArray predsJsonArray = jsonObj.getJSONArray("predictions");
 
 		        // Extract the Place descriptions from the results
-		        List resultList = new ArrayList<String>(predsJsonArray.length());
+		        resultList = new ArrayList<String>(predsJsonArray.length());
 		        for (int i = 0; i < predsJsonArray.length(); i++) {
+		        	
 		        	Log.d("output",predsJsonArray.getJSONObject(i).getString("description"));
 		            resultList.add(predsJsonArray.getJSONObject(i).getString("description"));
 		        }
@@ -99,7 +103,8 @@ public class AutoComplete extends AsyncTask<String, Void,String> {
 		        Log.e("JSONException", "Cannot process JSON results", e);
 		    }
 
-			return inputPlace;
+			return resultList;
 
 }
+	
 }
