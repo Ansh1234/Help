@@ -127,11 +127,18 @@ public class MainActivity extends ActionBarActivity {
                 }
                 return true;
             case R.id.action_filter:
-                Intent i2 = new Intent(MainActivity.this, Filter.class);
-                startActivity(i2);
+                Intent intentFilter = new Intent(MainActivity.this, Filter.class);
+                startActivity(intentFilter);
                 overridePendingTransition( R.anim.down_to_up, R.anim.hold );
                 // openSettings();
                 return true;
+
+            case R.id.action_donate:
+                Intent intentDonate = new Intent(MainActivity.this, Donate.class);
+                startActivity(intentDonate);
+                overridePendingTransition( R.anim.down_to_up, R.anim.hold );
+
+                return  true;
             default:
                 return super.onOptionsItemSelected(item);
         }
