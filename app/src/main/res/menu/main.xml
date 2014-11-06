@@ -7,7 +7,11 @@
         android:icon="@android:drawable/ic_menu_search"
         android:title="Action Bar Search"
         Help:showAsAction="always" />
-
+    <item
+        android:id="@+id/action_donate"
+        android:icon="@drawable/ic_action_filter_filled"
+        android:title="Filter"
+        Help:showAsAction="always" />
 
     <item
         android:id="@+id/action_filter"
