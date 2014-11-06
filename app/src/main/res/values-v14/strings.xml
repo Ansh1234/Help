@@ -6,4 +6,23 @@
     <string name="action_settings">Settings</string>
     <string name="action_search">Search</string>
 
+    <!-- All the NGO Categories are Listed here-->
+    <string-array name="filter_category_names">
+        <item>Women and Children</item>
+        <item>Disabled Children</item>
+        <item>Acid Attack Victims</item>
+        <item>Orphanges</item>
+    </string-array>
+
+    <!-- All the Donation Categories are listed here -->
+    <string-array name="donate_category_names">
+        <item>Food</item>
+        <item>Books</item>
+        <item>Clothes</item>
+        <item>Electronics</item>
+        <item>Womens Wear</item>
+        <item>Childrens Wear</item>
+    </string-array>
+
+
 </resources>
