@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/top"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/semicolor"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp" >
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_weight="0.25"
+        android:src="@drawable/ngo_info_call" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_weight="0.25"
+        android:duplicateParentState="true"
+        android:src="@drawable/ngo_info_email" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_weight="0.25"
+        android:duplicateParentState="true"
+        android:src="@drawable/geo1" />
+    
+    <ImageView 
+	    android:layout_width="0dp"
+	    android:layout_height="35dp"
+	 	android:layout_weight="0.0"
+	    android:src="@drawable/geo1"
+	    android:id="@+id/ngo_info_directions"
+	    />
+// black border, more grey backgrowund
+    // fukck off
+    // teri maa ka!
+    // font
+</LinearLayout><!-- From: file:/home/anshul/AndroidstudioProjects/Help/app/src/main/res/layout/ngo_info_bottombar.xml -->

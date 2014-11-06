@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" 
+      xmlns:Help="http://schemas.android.com/apk/res-auto" >>
+  
+      
+      <item android:id="@+id/action_rate"
+          android:icon="@drawable/action_rate"
+          android:title="Email NGO"
+          Help:showAsAction="never" />
+      
+      <item android:id="@+id/action_review"
+          android:icon="@drawable/action_review"
+          android:title="Get Directions"
+          Help:showAsAction="never"  />
+    
+      <item
+        android:id="@+id/action_follow"
+        android:title="Rate"
+        android:icon="@drawable/action_follow"
+        Help:showAsAction="never" />
+    
+  
+</menu>

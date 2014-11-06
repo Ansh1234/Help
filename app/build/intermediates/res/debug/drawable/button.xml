@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+<stroke android:width="3dp"
+        android:color="#006699" />
+
+  
+  <gradient android:angle="270"
+            android:centerColor="#29ABE2"
+            android:endColor="#006699"
+            android:startColor="#29ABE2" />
+</shape><!-- From: file:/home/anshul/AndroidstudioProjects/Help/app/src/main/res/drawable/button.xml -->

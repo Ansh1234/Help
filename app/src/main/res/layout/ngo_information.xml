@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/top"
+        android:background="#e8e8e8" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/ngo_info_display_image"
+                android:layout_width="match_parent"
+                android:layout_height="270dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/oone" />
+
+            <include layout="@layout/ngo_info_about" />
+
+            <include layout="@layout/ngo_info_description" />
+
+            <include layout="@layout/ngo_info_address" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
