@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import org.help.adapters.ListViewCustomAdapter;
+import org.help.utilities.ListViewUtilities;
 
 /**
  * Created by anshul on 4/11/14.
@@ -32,14 +33,14 @@ public class Filter extends ActionBarActivity {
         final LinearLayout filterDropDownList = (LinearLayout) findViewById(R.id.filter_dropdown_list);
         filterDropDownList.setVisibility(View.INVISIBLE);
 
-        //the category names are stored inside filter_category_names array
+        //the filter category names of NGOs are stored inside filter_category_names array
         String[] filterCategoryNames = getResources().getStringArray(R.array.filter_category_names);
 
         //Initialize a boolean array containing the boolean information of every category
         filterCategory = new boolean[filterCategoryNames.length];
 
         ListView filterCategoryListView = (ListView) findViewById(R.id.filter_dropdown_listview);
-        ListAdapter adapter = new FilterCustomAdapter(this, filterCategoryNames);
+        ListAdapter adapter = new ListViewCustomAdapter(this, filterCategoryNames);
         filterCategoryListView.setAdapter(adapter);
         filterCategoryListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -64,11 +65,11 @@ public class Filter extends ActionBarActivity {
 
                 //If the list is closed
                 if (!isOpen) {
-                    expand(filterDropDownList);
+                    ListViewUtilities.expand(filterDropDownList);
                     isOpen = true;
                 } else {
                     //If the list is open.
-                    collapse(filterDropDownList);
+                    ListViewUtilities.collapse(filterDropDownList);
                     isOpen = false;
                 }
             }
@@ -79,7 +80,7 @@ public class Filter extends ActionBarActivity {
             public void onClick(View v) {
                 Intent i2 = new Intent(Filter.this, MainActivity.class);
                 startActivity(i2);
-                Log.d("events",filterEvent+"");
+                Log.d("events", filterEvent + "");
                 Log.d("wish",filterWish+"");
                 for(int i =0;i<filterCategory.length;i++){
                     Log.d("status",filterCategory[i]+"");
@@ -90,57 +91,6 @@ public class Filter extends ActionBarActivity {
         });
 
 
-    }
-
-    public static void expand(final View v) {
-        v.measure(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        final int targetHeight = v.getMeasuredHeight();
-
-        v.getLayoutParams().height = 0;
-        v.setVisibility(View.VISIBLE);
-        Animation a = new Animation() {
-            @Override
-            protected void applyTransformation(float interpolatedTime, Transformation t) {
-                v.getLayoutParams().height = interpolatedTime == 1
-                        ? LinearLayout.LayoutParams.WRAP_CONTENT
-                        : (int) (targetHeight * interpolatedTime);
-                v.requestLayout();
-            }
-
-            @Override
-            public boolean willChangeBounds() {
-                return true;
-            }
-        };
-
-        // 1dp/ms
-        a.setDuration((int) (targetHeight / v.getContext().getResources().getDisplayMetrics().density));
-        v.startAnimation(a);
-    }
-
-    public static void collapse(final View v) {
-        final int initialHeight = v.getMeasuredHeight();
-
-        Animation a = new Animation() {
-            @Override
-            protected void applyTransformation(float interpolatedTime, Transformation t) {
-                if (interpolatedTime == 1) {
-                    v.setVisibility(View.GONE);
-                } else {
-                    v.getLayoutParams().height = initialHeight - (int) (initialHeight * interpolatedTime);
-                    v.requestLayout();
-                }
-            }
-
-            @Override
-            public boolean willChangeBounds() {
-                return true;
-            }
-        };
-
-        // 1dp/ms
-        a.setDuration((int) (initialHeight / v.getContext().getResources().getDisplayMetrics().density));
-        v.startAnimation(a);
     }
 
     public void onCheckBoxClicked(View view) {
