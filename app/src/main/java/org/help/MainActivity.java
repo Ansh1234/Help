@@ -76,7 +76,7 @@ public class MainActivity extends ActionBarActivity {
                 R.layout.list_item));
 
         // Initially MapView is displayed.
-        setUpView(new MapViewDisplay());
+        setUpView(new ListViewDisplay());
 
         LinearLayout mainActivityMapViewIcon = (LinearLayout) findViewById(R.id.main_activity_map_view_icon);
         LinearLayout mainActivityListViewIcon = (LinearLayout) findViewById(R.id.main_activity_list_view_icon);
@@ -129,7 +129,7 @@ public class MainActivity extends ActionBarActivity {
             case R.id.action_filter:
                 Intent i2 = new Intent(MainActivity.this, Filter.class);
                 startActivity(i2);
-                overridePendingTransition( R.anim.slide_in_up, R.anim.slide_out_up );
+                overridePendingTransition( R.anim.down_to_up, R.anim.hold );
                 // openSettings();
                 return true;
             default:
