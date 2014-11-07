@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import org.help.adapters.NgoListCustomAdapter;
+
 public class ListViewDisplay extends Fragment implements ViewDisplay {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
