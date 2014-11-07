@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import org.help.adapters.NgoDisplayAdapter;
+
 public class NgoDisplay extends ActionBarActivity {
 	
 	// ViewPager holds all the pages of NgoDisplay Activity
@@ -75,11 +77,12 @@ public class NgoDisplay extends ActionBarActivity {
 				}
 	        };
 	        
-	        //Add 4 new tabs to the actionBar
-	        actionBar.addTab(actionBar.newTab().setText("INFO").setTabListener(tabListener));
-	        actionBar.addTab(actionBar.newTab().setText("EVENTS").setTabListener(tabListener));
-	        actionBar.addTab(actionBar.newTab().setText("NEEDS").setTabListener(tabListener));
-	        actionBar.addTab(actionBar.newTab().setText("ACTIVITY").setTabListener(tabListener));
+	        //Add 4 new tabs to the
+
+	        actionBar.addTab(actionBar.newTab().setText(getResources().getString(R.string.tab_one)).setTabListener(tabListener));
+	        actionBar.addTab(actionBar.newTab().setText(getResources().getString(R.string.tab_two)).setTabListener(tabListener));
+	        actionBar.addTab(actionBar.newTab().setText(getResources().getString(R.string.tab_three)).setTabListener(tabListener));
+	        actionBar.addTab(actionBar.newTab().setText(getResources().getString(R.string.tab_four)).setTabListener(tabListener));
             //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
 //	        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.semicolor));
