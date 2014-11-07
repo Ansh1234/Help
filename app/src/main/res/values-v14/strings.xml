@@ -24,5 +24,9 @@
         <item>Childrens Wear</item>
     </string-array>
 
-
+    <!-- The actionbar in the Ngo Display page is shown here -->
+    <string name="tab_one">INFO</string>
+    <string name="tab_two">ACTIVITY</string>
+    <string name="tab_three">NEEDS</string>
+    <string name="tab_four">DONATE</string>
 </resources>
